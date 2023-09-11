@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "a21c85e4-c15c-4c5e-99b5-3352c9d57501",
+		"name": "Inexisting Countries Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23113893",
+		"_collection_link": "https://www.postman.com/jg-testing/workspace/countries-api/collection/23113893-a21c85e4-c15c-4c5e-99b5-3352c9d57501?action=share&source=collection_link&creator=23113893"
+	},
+	"item": [
+		{
+			"name": "Get inexisting countries response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Run collection with invalid_countries.json and delay 1000ms (min)",
+							"",
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.equal(404);",
+							"});",
+							"",
+							"pm.test(\"Verify response is a JSON\", function () {",
+							"  const jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData.message).to.equal(\"Not Found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/{{countryCode}}?access_key=da7565a1b46c7af4f587f190e2f77342",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"{{countryCode}}"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "da7565a1b46c7af4f587f190e2f77342"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
