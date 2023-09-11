@@ -1,0 +1,36 @@
+[
+  {
+    "countryCode": "US",
+    "name": "United States of America",
+    "topLevelDomain": [".us"],
+    "alpha2Code": "US",
+    "alpha3Code": "USA",
+    "callingCodes": ["1"],
+    "capital": "Washington, D.C.",
+    "altSpellings": ["US", "USA", "United States of America"],
+    "region": "Americas"
+  },
+  {
+    "countryCode": "DE",
+    "name": "Germany",
+    "topLevelDomain": [".de"],
+    "alpha2Code": "DE",
+    "alpha3Code": "DEU",
+    "callingCodes": ["49"],
+    "capital": "Berlin",
+    "altSpellings": ["DE", "Federal Republic of Germany", "Bundesrepublik Deutschland"],
+    "region": "Europe"
+  },
+  {
+    "countryCode": "GB",
+    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "topLevelDomain": [".uk"],
+    "alpha2Code": "GB",
+    "alpha3Code": "GBR",
+    "callingCodes": ["44"],
+    "capital": "London",
+    "altSpellings": ["GB", "UK", "Great Britain"],
+    "region": "Europe"
+  }
+]
+
