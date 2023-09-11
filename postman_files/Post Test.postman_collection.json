@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "f9add031-2b9a-4b05-9753-c407bb1f1bb0",
+		"name": "Post Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23113893",
+		"_collection_link": "https://www.postman.com/jg-testing/workspace/countries-api/collection/23113893-f9add031-2b9a-4b05-9753-c407bb1f1bb0?action=share&source=collection_link&creator=23113893"
+	},
+	"item": [
+		{
+			"name": "Add country",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify POST Request when adding a new country\", function () {",
+							"    // Check the response status code (expected to be 201 Created)",
+							"    pm.response.to.have.status(201);",
+							"",
+							"    // Verify data has been successfully created (check Body tab)",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql({",
+							"        \"name\": \"Test Country\",",
+							"        \"alpha2_code\": \"TC\",",
+							"        \"alpha3_code\": \"TCY\"",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Country\",\n    \"alpha2_code\": \"TC\",\n    \"alpha3_code\": \"TCY\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/add?access_key=da7565a1b46c7af4f587f190e2f77342",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"add"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "da7565a1b46c7af4f587f190e2f77342"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

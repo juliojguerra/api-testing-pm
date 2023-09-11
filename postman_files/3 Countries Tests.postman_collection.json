@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "1b362ec1-c4fb-4a25-bb65-65f4b85cfb60",
+		"name": "3 Countries Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23113893",
+		"_collection_link": "https://www.postman.com/jg-testing/workspace/countries-api/collection/23113893-1b362ec1-c4fb-4a25-bb65-65f4b85cfb60?action=share&source=collection_link&creator=23113893"
+	},
+	"item": [
+		{
+			"name": "Get countries info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Run collection with countries.json and delay 1000ms (min)",
+							"",
+							"const expectedSchema = {",
+							"  type: 'object',",
+							"  properties: {",
+							"    name: { type: 'string' },",
+							"    topLevelDomain: {",
+							"      type: 'array',",
+							"      items: { type: 'string' }",
+							"    },",
+							"    alpha2Code: { type: 'string' },",
+							"    alpha3Code: { type: 'string' },",
+							"    callingCodes: {",
+							"      type: 'array',",
+							"      items: { type: 'string' }",
+							"    },",
+							"    capital: { type: 'string' },",
+							"    altSpellings: {",
+							"      type: 'array',",
+							"      items: { type: 'string' }",
+							"    },",
+							"    region: { type: 'string' }",
+							"  },",
+							"  required: ['name', 'topLevelDomain', 'alpha2Code', 'alpha3Code', 'callingCodes', 'capital', 'altSpellings', 'region']",
+							"};",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"pm.test(\"Verify response is a JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Verify schema\", function () {",
+							"  pm.response.to.have.jsonSchema(expectedSchema);",
+							"})",
+							"",
+							"// Validate response data",
+							"pm.test(\"Verify country data is correct\", function () {",
+							"    const jsonData = pm.response.json();",
+							"    ",
+							"    pm.expect(jsonData.name).to.eql(pm.iterationData.get(\"name\"));",
+							"    pm.expect(jsonData.topLevelDomain).to.eql(pm.iterationData.get(\"topLevelDomain\"));",
+							"    pm.expect(jsonData.alpha2Code).to.eql(pm.iterationData.get(\"alpha2Code\"));",
+							"    pm.expect(jsonData.alpha3Code).to.eql(pm.iterationData.get(\"alpha3Code\"));",
+							"    pm.expect(jsonData.callingCodes).to.eql(pm.iterationData.get(\"callingCodes\"));",
+							"    pm.expect(jsonData.altSpellings).to.eql(pm.iterationData.get(\"altSpellings\"));",
+							"    pm.expect(jsonData.capital).to.eql(pm.iterationData.get(\"capital\"));",
+							"    pm.expect(jsonData.region).to.eql(pm.iterationData.get(\"region\"));  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "API_KEY",
+						"value": "da7565a1b46c7af4f587f190e2f77342",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/{{countryCode}}?access_key=da7565a1b46c7af4f587f190e2f77342",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"{{countryCode}}"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "da7565a1b46c7af4f587f190e2f77342"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "countryCode",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
