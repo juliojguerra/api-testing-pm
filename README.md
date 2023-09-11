@@ -33,6 +33,7 @@ Run this collection with invalid_countries.json and add a delay of 1000ms (at le
 ### Post Add country
 Run this collection alone, does not need any test data file.
 
-Note: 
-Test data (countries and invalid_countries json) is in /test_data folder
+Notes: 
+- Test data (countries and invalid_countries json) is in /test_data folder
+- To run a collection, click on the 3 dots next to the collection name, click on Run Collection, choose corresponding file and add delay.
 
